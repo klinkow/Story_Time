@@ -1,0 +1,10 @@
+<h1>Stories</h1>
+
+<ul>
+  <% @stories.each do |story| %>
+    <li><%= story.title %></li>
+    <li><%= image_tag(story.image) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add New Story", new_story_path %>
