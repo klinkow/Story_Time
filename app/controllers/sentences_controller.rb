@@ -9,6 +9,7 @@ class SentencesController < ApplicationController
     @sentence = Sentence.new
     @story = Story.find(params[:story_id])
     @user = User.find(session[:current_user_id])
+    @sentences = @story.sentences.all
   end
 
   def create

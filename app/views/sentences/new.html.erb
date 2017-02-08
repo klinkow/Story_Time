@@ -1,3 +1,10 @@
+<ul>
+  <% @sentences.each do |sentence| %>
+    <li><%= image_tag(sentence.image) %></li>
+    <li><%=sentence.text %></li>
+  <% end %>
+</ul>
+
 <h1>Add to the story:</h1>
 
 <%= render 'form' %>
