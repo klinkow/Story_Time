@@ -2,8 +2,14 @@
 
 <ul>
   <% @stories.each do |story| %>
-    <li><%= story.title %></li>
+    <li><%= link_to story.title, story_sentences_path(story) %></li>
     <li><%= image_tag(story.image) %></li>
+    <li>
+      <%= link_to "Edit", edit_story_path(story) %> |
+      <%= link_to "Delete", story_path(story),
+      :data => {:confirm => "Are you sure?",
+        :method => "delete"} %>
+    </li>
   <% end %>
 </ul>
 

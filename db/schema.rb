@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208162715) do
+ActiveRecord::Schema.define(version: 20170208191416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "sentences", force: :cascade do |t|
-    t.integer  "stories_id"
-    t.integer  "users_id"
+    t.integer  "story_id"
+    t.integer  "user_id"
     t.string   "text"
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["stories_id"], name: "index_sentences_on_stories_id", using: :btree
-    t.index ["users_id"], name: "index_sentences_on_users_id", using: :btree
+    t.index ["story_id"], name: "index_sentences_on_story_id", using: :btree
+    t.index ["user_id"], name: "index_sentences_on_user_id", using: :btree
   end
 
   create_table "stories", force: :cascade do |t|

@@ -1,0 +1,17 @@
+<h1> <%= @story.title %> </h1>
+<%= image_tag(@story.image) %>
+
+<ul>
+  <% @sentences.each do |sentence| %>
+    <li><%= image_tag(sentence.image) %></li>
+    <li><%=sentence.text %></li>
+    <li>
+      <%= link_to "Edit", edit_story_sentence_path(@story, sentence) %> |
+      <%= link_to "Delete", story_sentence_path(@story, sentence),
+      :data => {:confirm => "Are you sure?",
+        :method => "delete"} %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add To This Story", new_story_sentence_path %>
