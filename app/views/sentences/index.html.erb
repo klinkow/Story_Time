@@ -1,6 +1,6 @@
 <h1> <%= @story.title %> </h1>
 <%= image_tag(@story.image) %>
-
+<h1><%= @user.name %></h1>
 <ul>
   <% @sentences.each do |sentence| %>
     <li><%= image_tag(sentence.image) %></li>

@@ -1,5 +1,7 @@
 class StoriesController < ApplicationController
+
   def index
+    session[:current_user_id] = params[:format]
     @stories = Story.all
   end
 
