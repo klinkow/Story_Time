@@ -1,27 +1,24 @@
-<h1>Stories</h1>
+<h1 class="center-align">Choose a Story:</h1>
 <% if @tf %>
 <ul>
 
 
 
-<div class="row">
+<div class="flex">
   <% @stories.each do |story| %>
-  <div class="col s12 m4">
-    <div class="card horizontal">
-      <div class="card-image">
-        <%= image_tag(story.image) %>
-      </div>
+
+    <div class="card">
+        <%= image_tag(story.image, width: "100%") %>
       <div class="card-stacked">
         <div class="card-action">
           <h5><%= link_to story.title, story_sentences_path(story) %></h5>
-          <%= link_to "Edit", edit_story_path(story) %> |
-          <%= link_to "Delete", story_path(story),
+          <%= link_to "Edit", edit_story_path(story) %>| &nbsp &nbsp <%= link_to "Delete", story_path(story),
           :data => {:confirm => "Are you sure?",
             :method => "delete"} %>
           </div>
         </div>
       </div>
-    </div>
+
     <%end %>
 </div>
 

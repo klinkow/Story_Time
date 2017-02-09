@@ -3,12 +3,44 @@ $primary-color: color("blue", "lighten-2") !default;
 $secondary-color: color("green", "base") !default;
 @import "materialize";
 
+body {
+  font-family: 'Arvo', serif;
+  background-image: url("paper.jpg");
+}
 
 .center-big {
   text-align: center;
   font-size: 50px;
 }
 
+.card-title {
+  text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+}
+
 .card {
-  border-radius: 25px;
+  width: 100%;
+}
+
+.sentence-image {
+  width: 100px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+img {
+
+}
+
+#title-card {
+
+  width: 100%;
+}
+
+body {
+  background-color: #bdbdbd;
 }

@@ -12,8 +12,8 @@ class StoriesController < ApplicationController
 
   def new
     @story = Story.new
-    number = rand(1013)
-    @image = "https://unsplash.it/200/200?image=" + number.to_s
+    number = rand($image_array.length)
+    @image = $image_array[number]
   end
 
   def create

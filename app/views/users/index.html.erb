@@ -1,11 +1,13 @@
 <h3 class="center-align">Choose your login:</h3>
 
 <% @users.each do |user| %>
+<%= link_to stories_path(user) do %>
 <div class="card">
   <div class="card-content center-align">
-    <%= link_to user.name, stories_path(user), class: "center-big" %><i class="material-icons right">more_vert</i>
-    <p class="left-align"><%= link_to "Edit", edit_user_path(user) %></p>
-    <p class="left-align"><%= link_to "Delete", user_path(user),
+      <h2 class="black-text">
+      <%= user.name %>
+      </h2>
+    <p class="left-align"><%= link_to "Edit", edit_user_path(user) %> | <%= link_to "Delete", user_path(user),
     :data => {:confirm => "Are you sure?",
       :method => "delete"} %></p>
   </div>
@@ -14,6 +16,7 @@
     <p>Here is some more information about this product that is only revealed once clicked on.</p>
   </div>
 </div>
+<% end %>
 <% end %>
 
 

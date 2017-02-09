@@ -1,38 +1,43 @@
-<h1> <%= @story.title %> </h1>
-<%= image_tag(@story.image) %>
-<h1><%= @user.name %></h1>
-
-
-
-
-
-<div class="row">
-  <% @sentences.each do |sentence| %>
-  <div class="col s12 m4">
-    <div class="card horizontal">
-      <div class="card-image">
-        <%= image_tag(sentence.image) %>
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p><%=sentence.text %></p>
-        </div>
-        <div class="card-action">
-          <%= link_to "Edit", edit_story_sentence_path(@story, sentence) %> |
-          <%= link_to "Delete", story_sentence_path(@story, sentence),
-          :data => {:confirm => "Are you sure?",
-            :method => "delete"} %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <%end %>
+<div class="image-container center-align">
+  <br><%= image_tag(@story.image, id: "title-card") %>
+  <h1> <%= @story.title %> </h1>
 </div>
 
 
 
 
 
-<%= link_to "Add To This Story", new_story_sentence_path %>
-<%= link_to "Back to Stories", stories_path(@user) %>
-<%= link_to "Back to Users", users_path %>
+
+<div class="flex">
+  <% @sentences.each do |sentence| %>
+
+  <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <%= image_tag(sentence.image, width: "100%", class: "activator") %>
+        <p class="card-title">
+          <%=sentence.text %>
+        </p>
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
+        <p class="position">
+        </p>
+        <p>By: <%= sentence.user.name %> </p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <p><%= link_to "Edit", edit_story_sentence_path(@story, sentence) %> |
+        <%= link_to "Delete", story_sentence_path(@story, sentence),
+        :data => {:confirm => "Are you sure?",
+          :method => "delete"} %></p>
+      </div>
+    </div>
+
+    <%end %>
+</div>
+
+<div class="center-align">
+  <%= link_to "Add To This Story", new_story_sentence_path, class:"btn" %>
+  <%= link_to "Back to Stories", stories_path(@user), class:"btn orange" %>
+  <%= link_to "Back to Users", users_path, class:"btn red" %><br><br>
+</div>

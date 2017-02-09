@@ -10,8 +10,8 @@ class SentencesController < ApplicationController
     @sentence = Sentence.new
     @story = Story.find(params[:story_id])
     @user = User.find(session[:current_user_id])
-    number = rand(1013)
-    @image = "https://unsplash.it/200/200?image=" + number.to_s
+    number = rand($image_array.length)
+    @image = $image_array[number]
     @sentences = @story.sentences.all
   end
 
