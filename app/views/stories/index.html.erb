@@ -6,19 +6,19 @@
 
 <div class="flex">
   <% @stories.each do |story| %>
-
+  <%= link_to story_sentences_path(story)  do %>
     <div class="card">
         <%= image_tag(story.image, width: "100%") %>
       <div class="card-stacked">
+        <h4 class="black-text center-align"><%=  story.title %></h4>
         <div class="card-action">
-          <h5><%= link_to story.title, story_sentences_path(story) %></h5>
           <%= link_to "Edit", edit_story_path(story) %>| &nbsp &nbsp <%= link_to "Delete", story_path(story),
           :data => {:confirm => "Are you sure?",
             :method => "delete"} %>
           </div>
         </div>
       </div>
-
+      <%end %>
     <%end %>
 </div>
 
@@ -29,6 +29,12 @@
 
 <%= link_to "Add New Story", new_story_path, class: "btn" %>
 <%= link_to "Back to Users", users_path, class: "btn red" %>
+
+<%= form_tag("/stories/search", method: 'get') do %>
+  <%= label_tag(:search_term, "Search for:") %>
+  <%= text_field_tag(:search_term) %>
+  <%= submit_tag("Search", class: "btn")%>
+<% end %>
 
 
 <% else %>

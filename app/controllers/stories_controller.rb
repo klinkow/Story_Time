@@ -1,5 +1,12 @@
 class StoriesController < ApplicationController
 
+  def search
+    @tf = true
+    @stories = Story.basic_search(search_params[:search_term])
+
+    render :index;
+  end
+
   def index
     @tf = true
     @stories = Story.all
@@ -51,5 +58,9 @@ class StoriesController < ApplicationController
   private
   def story_params
     params.require(:story).permit(:title, :image)
+  end
+
+  def search_params
+    params.permit(:search_term)
   end
 end
