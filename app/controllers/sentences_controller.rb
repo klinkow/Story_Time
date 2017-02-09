@@ -5,10 +5,13 @@ class SentencesController < ApplicationController
     @sentences = @story.sentences.all
     @user = User.find(session[:current_user_id])
   end
+
   def new
     @sentence = Sentence.new
     @story = Story.find(params[:story_id])
     @user = User.find(session[:current_user_id])
+    number = rand(1013)
+    @image = "https://unsplash.it/200/200?image=" + number.to_s
     @sentences = @story.sentences.all
   end
 
@@ -28,6 +31,7 @@ class SentencesController < ApplicationController
     @story = Story.find(params[:story_id])
     @user = User.find(session[:current_user_id])
     @sentence = Sentence.find(params[:id])
+    @image = @sentence.image
   end
 
   def update

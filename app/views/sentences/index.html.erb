@@ -1,18 +1,37 @@
 <h1> <%= @story.title %> </h1>
 <%= image_tag(@story.image) %>
 <h1><%= @user.name %></h1>
-<ul>
+
+
+
+
+
+<div class="row">
   <% @sentences.each do |sentence| %>
-    <li><%= image_tag(sentence.image) %></li>
-    <li><%=sentence.text %></li>
-    <li>
-      <%= link_to "Edit", edit_story_sentence_path(@story, sentence) %> |
-      <%= link_to "Delete", story_sentence_path(@story, sentence),
-      :data => {:confirm => "Are you sure?",
-        :method => "delete"} %>
-    </li>
-  <% end %>
-</ul>
+  <div class="col s12 m4">
+    <div class="card horizontal">
+      <div class="card-image">
+        <%= image_tag(sentence.image) %>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><%=sentence.text %></p>
+        </div>
+        <div class="card-action">
+          <%= link_to "Edit", edit_story_sentence_path(@story, sentence) %> |
+          <%= link_to "Delete", story_sentence_path(@story, sentence),
+          :data => {:confirm => "Are you sure?",
+            :method => "delete"} %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%end %>
+</div>
+
+
+
+
 
 <%= link_to "Add To This Story", new_story_sentence_path %>
 <%= link_to "Back to Stories", stories_path(@user) %>

@@ -3,12 +3,23 @@
   <head>
     <title>StoryTime</title>
     <%= csrf_meta_tags %>
-
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo center">Story Time</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="/">Users</a></li>
+          <li><a href="/stories">Stories</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

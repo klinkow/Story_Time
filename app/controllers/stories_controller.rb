@@ -1,12 +1,19 @@
 class StoriesController < ApplicationController
 
   def index
-    session[:current_user_id] = params[:format]
+    @tf = true
     @stories = Story.all
+    if (params[:format] === nil && session[:current_user_id] === nil)
+      @tf = false
+    elsif (params[:format])
+      session[:current_user_id] = params[:format]
+    end
   end
 
   def new
     @story = Story.new
+    number = rand(1013)
+    @image = "https://unsplash.it/200/200?image=" + number.to_s
   end
 
   def create

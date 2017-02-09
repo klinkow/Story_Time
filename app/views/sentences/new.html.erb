@@ -1,9 +1,9 @@
 <ul>
   <% @sentences.each do |sentence| %>
-    <li><%= image_tag(sentence.image) %></li>
     <li><%=sentence.text %></li>
   <% end %>
 </ul>
+<%= image_tag(@image) %>
 
 <h1>Add to the story:</h1>
 

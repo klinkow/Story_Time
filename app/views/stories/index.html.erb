@@ -1,17 +1,39 @@
 <h1>Stories</h1>
-
+<% if @tf %>
 <ul>
-  <% @stories.each do |story| %>
-    <li><%= link_to story.title, story_sentences_path(story) %></li>
-    <li><%= image_tag(story.image) %></li>
-    <li>
-      <%= link_to "Edit", edit_story_path(story) %> |
-      <%= link_to "Delete", story_path(story),
-      :data => {:confirm => "Are you sure?",
-        :method => "delete"} %>
-    </li>
-  <% end %>
-</ul>
 
-<%= link_to "Add New Story", new_story_path %><br>
-<%= link_to "Back to Users", users_path %>
+
+
+<div class="row">
+  <% @stories.each do |story| %>
+  <div class="col s12 m4">
+    <div class="card horizontal">
+      <div class="card-image">
+        <%= image_tag(story.image) %>
+      </div>
+      <div class="card-stacked">
+        <div class="card-action">
+          <h5><%= link_to story.title, story_sentences_path(story) %></h5>
+          <%= link_to "Edit", edit_story_path(story) %> |
+          <%= link_to "Delete", story_path(story),
+          :data => {:confirm => "Are you sure?",
+            :method => "delete"} %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%end %>
+</div>
+
+
+
+
+
+
+<%= link_to "Add New Story", new_story_path, class: "btn" %>
+<%= link_to "Back to Users", users_path, class: "btn red" %>
+
+
+<% else %>
+<h1>Log in to view stories</h1>
+<% end %>

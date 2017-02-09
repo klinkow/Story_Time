@@ -1,15 +1,20 @@
-<h1>Users</h1>
+<h3 class="center-align">Choose your login:</h3>
 
-<ul>
-  <% @users.each do |user| %>
-    <li><%= link_to user.name, stories_path(user) %></li>
-    <li>
-      <%= link_to "Edit", edit_user_path(user) %> |
-      <%= link_to "Delete", user_path(user),
-      :data => {:confirm => "Are you sure?",
-        :method => "delete"} %>
-    </li>
-  <% end %>
-</ul>
+<% @users.each do |user| %>
+<div class="card">
+  <div class="card-content center-align">
+    <%= link_to user.name, stories_path(user), class: "center-big" %><i class="material-icons right">more_vert</i>
+    <p class="left-align"><%= link_to "Edit", edit_user_path(user) %></p>
+    <p class="left-align"><%= link_to "Delete", user_path(user),
+    :data => {:confirm => "Are you sure?",
+      :method => "delete"} %></p>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+  </div>
+</div>
+<% end %>
 
-<%= link_to "Add New User", new_user_path %>
+
+<%= link_to "Add New User", new_user_path, class:"btn" %>
