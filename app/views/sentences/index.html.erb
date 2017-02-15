@@ -13,7 +13,8 @@
 
   <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
-        <%= image_tag(sentence.image, width: "100%", class: "activator") %>
+        <img src='<%= sentence.image %>' alt="picture" class="activator card-image">
+        <!-- <%= image_tag(sentence.image, class: "activator card-image") %> -->
         <p class="card-title">
           <%=sentence.text %>
         </p>
@@ -35,8 +36,8 @@
       </div>
     </div>
 
-    <%end %>
 </div>
+<%end %>
 
 <div class="center-align">
   <%= link_to "Add To This Story", new_story_sentence_path, class:"btn" %>
